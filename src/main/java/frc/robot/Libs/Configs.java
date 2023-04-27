@@ -84,4 +84,9 @@ public class Configs {
 
         return motor;
       }
+
+      protected void screwyou() {
+        AzimuthFX(null, 0, 0, 0, null, null);
+        DriveFX(null, 0, 0, null);
+      }
 }
