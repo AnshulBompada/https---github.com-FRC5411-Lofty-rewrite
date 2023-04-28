@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Libs.ArmKinematics;
 import frc.robot.Libs.Configs;
 import frc.robot.Libs.DoubleJointedArmFeedforward;
 
@@ -34,6 +35,7 @@ public class Arm extends SubsystemBase {
   private double m_BiscepVelRad;
   private double m_ElbowVelRad;
   private double m_WristVelRad;
+  private ArmKinematics kinematics;
 
   public Arm() {
     m_Biscep = Configs.NEO(m_Biscep, 0,  false);
@@ -62,11 +64,19 @@ public class Arm extends SubsystemBase {
     m_DoubleJointFF = new DoubleJointedArmFeedforward(m_BiscepConfig, m_ElbowConfig);
 
     m_WristFF = new ArmFeedforward(0.0, 0.0, 0.0, 0.0);
+
+    kinematics = new ArmKinematics(0, 0, 0, 
+    ()-> getBiscepRadians(), ()->getElbowRadians(), ()->getWristRadians());
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+  }
+
+  public double[] generateSetpointFromPosition(double x, double y, double z) {
+    double[] setpoint = kinematics.inverseKinematics(x, y, z);
+    return setpoint;
   }
 
   public Command moveBiscep(double setpointRad) {

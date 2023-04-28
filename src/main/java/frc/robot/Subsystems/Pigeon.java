@@ -14,6 +14,8 @@ public class Pigeon extends SubsystemBase {
 
   public Pigeon() {
     pigeon = new Pigeon2(0);
+    
+    zeroYaw();
   }
 
   public double getYaw() {

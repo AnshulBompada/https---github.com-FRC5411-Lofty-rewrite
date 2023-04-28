@@ -26,6 +26,22 @@ public class LEDS extends SubsystemBase {
     return new SequentialCommandGroup(flash, new WaitCommand(1), returnToLast);
   }
 
+  public void PURPLE() {
+    setLEDS(255, 0, 255);
+  }
+
+  public void YELLOW() {
+    setLEDS(255, 255, 0);
+  }
+
+  public void flashGreen() {
+    flash(0, 255, 0);
+  }
+
+  public void flashRed() {
+    flash(255, 0, 0);
+  }
+
   public void setLEDS(int r, int g, int b) {
     for(int i = 0; i < m_ledBuffer.getLength(); i++) {
       m_ledBuffer.setRGB(i, r, g, b);

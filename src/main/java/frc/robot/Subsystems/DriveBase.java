@@ -6,15 +6,15 @@ package frc.robot.Subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Auton extends SubsystemBase {
+public class DriveBase extends SubsystemBase {
   private Swerve m_drive;
-  private Arm m_arm;
+  private Limelight m_limeLight;
+  private Pigeon m_pigeon;
 
-
-  public Auton(Swerve drive, Arm arm) {
+  public DriveBase(Swerve drive, Limelight limeLight, Pigeon pigeon) {
     m_drive = drive;
-    m_arm = arm;
-
+    m_limeLight = limeLight;
+    m_pigeon = pigeon;
   }
 
   @Override

@@ -54,8 +54,8 @@ public class PinchersofPower extends SubsystemBase {
     }
   }
 
-  public void intake(boolean state) {
-    if(state == true) {
+  public void intake(boolean cone) {
+    if(cone == true) {
       unclamp();
       clamp();
     }
@@ -67,10 +67,9 @@ public class PinchersofPower extends SubsystemBase {
     noSpin();
   }
 
-  public void outtake(boolean state) {
-    if(state == true) {
+  public void outtake(boolean cone) {
+    if(cone == true) {
       unclamp();
-      clamp();
     }
     else {
     outSpin();

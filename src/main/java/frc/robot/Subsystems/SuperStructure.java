@@ -6,15 +6,15 @@ package frc.robot.Subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Auton extends SubsystemBase {
-  private Swerve m_drive;
-  private Arm m_arm;
+public class SuperStructure extends SubsystemBase {
+  private Arm m_Arm;
+  private PinchersofPower m_PinchersofPower;
+  private LEDS m_LEDS;
 
-
-  public Auton(Swerve drive, Arm arm) {
-    m_drive = drive;
-    m_arm = arm;
-
+  public SuperStructure(Arm arm, PinchersofPower POP, LEDS leds ) {
+    m_Arm = arm;
+    m_PinchersofPower = POP;
+    m_LEDS = leds;
   }
 
   @Override

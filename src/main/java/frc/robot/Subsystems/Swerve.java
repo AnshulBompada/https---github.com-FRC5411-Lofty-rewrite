@@ -1,9 +1,9 @@
 package frc.robot.Subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Drive extends SubsystemBase {
+public class Swerve extends SubsystemBase {
   /** Creates a new Drive. */
-  public Drive() {}
+  public Swerve() {}
 
   @Override
   public void periodic() {
